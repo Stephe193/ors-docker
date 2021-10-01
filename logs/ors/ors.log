@@ -1,0 +1,216 @@
+2021-10-01 11:36:43,594 INFO [ors.Application] - Starting Application v6.6.1 on bd482f6578e6 with PID 120 (/usr/local/tomcat/webapps/ors/WEB-INF/classes started by root in /ors-core)
+2021-10-01 11:36:43,599 DEBUG [ors.Application] - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+2021-10-01 11:36:43,605 INFO [ors.Application] - No active profile set, falling back to default profiles: default
+2021-10-01 11:36:47,572 INFO [ors.Application] - Started Application in 5.583 seconds (JVM running for 13.481)
+2021-10-01 11:36:47,753 INFO [routing.RoutingProfileManager] -  Total - 1.00 GB, Free - 794.59 MB, Max: 2 GB, Used - 231.41 MB
+2021-10-01 11:36:47,757 INFO [routing.RoutingProfileManager] -       
+2021-10-01 11:36:47,849 INFO [routing.RoutingProfileManager] - ====> Initializing profiles from 'data/osm_file.osm.bz2' (2 threads) ...
+2021-10-01 11:36:47,857 INFO [routing.RoutingProfileManager] -                               
+2021-10-01 11:36:47,876 INFO [routing.RoutingProfileManager] -                
+2021-10-01 11:36:47,942 INFO [routing.RoutingProfile] - [1] Profiles: 'driving-car', location: 'graphs/car'.
+2021-10-01 11:36:47,963 INFO [routing.RoutingProfile] - [2] Profiles: 'driving-hgv', location: 'graphs/hgv'.
+2021-10-01 11:36:48,451 ERROR [routing.RoutingProfileManager] - java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Your specified OSM file does not exist:/ors-core/data/osm_file.osm.bz2
+2021-10-01 11:36:48,452 INFO [routing.RoutingProfile] - [3] Profiles: 'cycling-regular', location: 'graphs/bike-regular'.
+2021-10-01 11:36:48,455 INFO [routing.RoutingProfile] - [4] Profiles: 'cycling-mountain', location: 'graphs/bike-mountain'.
+2021-10-01 11:36:48,453 ERROR [routing.RoutingProfileManager] - Failed to initialize RoutingProfileManager instance.
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Your specified OSM file does not exist:/ors-core/data/osm_file.osm.bz2
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122) ~[?:?]
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191) ~[?:?]
+	at org.heigit.ors.routing.RoutingProfileManager.initialize(RoutingProfileManager.java:176) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfileManager.getInstance(RoutingProfileManager.java:70) ~[classes/:6.6.1]
+	at org.heigit.ors.servlet.listeners.ORSInitContextListener.lambda$contextInitialized$0(ORSInitContextListener.java:41) ~[classes/:6.6.1]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+Caused by: java.lang.IllegalStateException: Your specified OSM file does not exist:/ors-core/data/osm_file.osm.bz2
+	at com.graphhopper.reader.osm.OSMReader.readGraph(OSMReader.java:171) ~[graphhopper-reader-osm-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.importData(GraphHopper.java:735) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.readData(GraphHopper.java:714) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.process(GraphHopper.java:701) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.importOrLoad(GraphHopper.java:680) ~[graphhopper-core-v0.13.15.jar:?]
+	at org.heigit.ors.routing.graphhopper.extensions.ORSGraphHopper.importOrLoad(ORSGraphHopper.java:155) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfile.initGraphHopper(RoutingProfile.java:189) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfile.<init>(RoutingProfile.java:133) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfileLoader.call(RoutingProfileLoader.java:35) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfileLoader.call(RoutingProfileLoader.java:21) ~[classes/:6.6.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[?:?]
+	... 1 more
+2021-10-01 11:36:48,477 INFO [routing.RoutingProfileManager] - ====> Recycling garbage...
+2021-10-01 11:36:48,481 INFO [routing.RoutingProfileManager] - Before:  Total - 1.00 GB, Free - 706.09 MB, Max: 2 GB, Used - 319.91 MB
+2021-10-01 11:36:48,561 INFO [routing.RoutingProfileManager] - After:  Total - 1024 MB, Free - 990.80 MB, Max: 2 GB, Used - 33.70 MB
+2021-10-01 11:36:48,563 INFO [routing.RoutingProfileManager] - ========================================================================
+2021-10-01 11:36:48,564 INFO [routing.RoutingProfileManager] - ====> Memory usage by profiles:
+2021-10-01 11:36:48,567 INFO [routing.RoutingProfileManager] - Total: 0 B (0.0%)
+2021-10-01 11:36:48,569 INFO [routing.RoutingProfileManager] - ========================================================================
+2021-10-01 11:36:48,581 INFO [routing.RoutingProfile] - [5] Profiles: 'cycling-road', location: 'graphs/bike-road'.
+2021-10-01 11:36:48,588 INFO [routing.RoutingProfile] - [6] Profiles: 'cycling-electric', location: 'graphs/bike-electric'.
+2021-10-01 11:36:48,611 INFO [bike.CommonBikeFlagEncoder] - NextGen RoadBike FlagEncoder is active...
+2021-10-01 11:36:48,615 INFO [routing.RoutingProfile] - [7] Profiles: 'foot-walking', location: 'graphs/walking'.
+2021-10-01 11:36:48,631 INFO [routing.RoutingProfile] - [8] Profiles: 'foot-hiking', location: 'graphs/hiking'.
+2021-10-01 11:36:48,644 INFO [routing.RoutingProfile] - [9] Profiles: 'wheelchair', location: 'graphs/wheelchair'.
+2021-10-01 11:39:57,565 INFO [ors.Application] - Starting Application v6.6.1 on d047c342c9e5 with PID 118 (/usr/local/tomcat/webapps/ors/WEB-INF/classes started by root in /ors-core)
+2021-10-01 11:39:57,571 DEBUG [ors.Application] - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+2021-10-01 11:39:57,577 INFO [ors.Application] - No active profile set, falling back to default profiles: default
+2021-10-01 11:40:01,772 INFO [ors.Application] - Started Application in 5.801 seconds (JVM running for 14.097)
+2021-10-01 11:40:01,958 INFO [routing.RoutingProfileManager] -  Total - 1.00 GB, Free - 790.77 MB, Max: 2 GB, Used - 235.23 MB
+2021-10-01 11:40:01,968 INFO [routing.RoutingProfileManager] -       
+2021-10-01 11:40:02,093 INFO [routing.RoutingProfileManager] - ====> Initializing profiles from 'data/osm_file.osm.bz2' (2 threads) ...
+2021-10-01 11:40:02,100 INFO [routing.RoutingProfileManager] -                               
+2021-10-01 11:40:02,119 INFO [routing.RoutingProfileManager] -                
+2021-10-01 11:40:02,229 INFO [routing.RoutingProfile] - [1] Profiles: 'driving-hgv', location: 'graphs/hgv'.
+2021-10-01 11:40:02,245 INFO [routing.RoutingProfile] - [2] Profiles: 'driving-car', location: 'graphs/car'.
+2021-10-01 11:40:02,717 ERROR [routing.RoutingProfileManager] - java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Your specified OSM file does not exist:/ors-core/data/osm_file.osm.bz2
+2021-10-01 11:40:02,718 INFO [routing.RoutingProfile] - [4] Profiles: 'cycling-mountain', location: 'graphs/bike-mountain'.
+2021-10-01 11:40:02,717 INFO [routing.RoutingProfile] - [3] Profiles: 'cycling-regular', location: 'graphs/bike-regular'.
+2021-10-01 11:40:02,766 INFO [routing.RoutingProfile] - [5] Profiles: 'cycling-road', location: 'graphs/bike-road'.
+2021-10-01 11:40:02,720 ERROR [routing.RoutingProfileManager] - Failed to initialize RoutingProfileManager instance.
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Your specified OSM file does not exist:/ors-core/data/osm_file.osm.bz2
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122) ~[?:?]
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191) ~[?:?]
+	at org.heigit.ors.routing.RoutingProfileManager.initialize(RoutingProfileManager.java:176) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfileManager.getInstance(RoutingProfileManager.java:70) ~[classes/:6.6.1]
+	at org.heigit.ors.servlet.listeners.ORSInitContextListener.lambda$contextInitialized$0(ORSInitContextListener.java:41) ~[classes/:6.6.1]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+Caused by: java.lang.IllegalStateException: Your specified OSM file does not exist:/ors-core/data/osm_file.osm.bz2
+	at com.graphhopper.reader.osm.OSMReader.readGraph(OSMReader.java:171) ~[graphhopper-reader-osm-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.importData(GraphHopper.java:735) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.readData(GraphHopper.java:714) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.process(GraphHopper.java:701) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.importOrLoad(GraphHopper.java:680) ~[graphhopper-core-v0.13.15.jar:?]
+	at org.heigit.ors.routing.graphhopper.extensions.ORSGraphHopper.importOrLoad(ORSGraphHopper.java:155) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfile.initGraphHopper(RoutingProfile.java:189) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfile.<init>(RoutingProfile.java:133) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfileLoader.call(RoutingProfileLoader.java:35) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfileLoader.call(RoutingProfileLoader.java:21) ~[classes/:6.6.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[?:?]
+	... 1 more
+2021-10-01 11:40:02,768 INFO [routing.RoutingProfile] - [6] Profiles: 'cycling-electric', location: 'graphs/bike-electric'.
+2021-10-01 11:40:02,777 INFO [routing.RoutingProfileManager] - ====> Recycling garbage...
+2021-10-01 11:40:02,782 INFO [routing.RoutingProfileManager] - Before:  Total - 1.00 GB, Free - 686.77 MB, Max: 2 GB, Used - 339.25 MB
+2021-10-01 11:40:02,860 INFO [routing.RoutingProfileManager] - After:  Total - 1024 MB, Free - 991.86 MB, Max: 2 GB, Used - 32.14 MB
+2021-10-01 11:40:02,870 INFO [bike.CommonBikeFlagEncoder] - NextGen RoadBike FlagEncoder is active...
+2021-10-01 11:40:02,864 INFO [routing.RoutingProfileManager] - ========================================================================
+2021-10-01 11:40:02,874 INFO [routing.RoutingProfileManager] - ====> Memory usage by profiles:
+2021-10-01 11:40:02,875 INFO [routing.RoutingProfile] - [7] Profiles: 'foot-walking', location: 'graphs/walking'.
+2021-10-01 11:40:02,878 INFO [routing.RoutingProfileManager] - Total: 0 B (0.0%)
+2021-10-01 11:40:02,881 INFO [routing.RoutingProfileManager] - ========================================================================
+2021-10-01 11:40:02,909 INFO [routing.RoutingProfile] - [8] Profiles: 'foot-hiking', location: 'graphs/hiking'.
+2021-10-01 11:40:02,923 INFO [routing.RoutingProfile] - [9] Profiles: 'wheelchair', location: 'graphs/wheelchair'.
+2021-10-01 11:44:36,089 INFO [ors.Application] - Starting Application v6.6.1 on 5afa0c64437b with PID 123 (/usr/local/tomcat/webapps/ors/WEB-INF/classes started by root in /ors-core)
+2021-10-01 11:44:36,098 DEBUG [ors.Application] - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+2021-10-01 11:44:36,105 INFO [ors.Application] - No active profile set, falling back to default profiles: default
+2021-10-01 11:44:40,424 INFO [ors.Application] - Started Application in 5.971 seconds (JVM running for 13.143)
+2021-10-01 11:44:40,609 INFO [routing.RoutingProfileManager] -  Total - 1.00 GB, Free - 789.86 MB, Max: 2 GB, Used - 236.14 MB
+2021-10-01 11:44:40,614 INFO [routing.RoutingProfileManager] -       
+2021-10-01 11:44:40,725 INFO [routing.RoutingProfileManager] - ====> Initializing profiles from 'data/osm_file.osm.bz2' (2 threads) ...
+2021-10-01 11:44:40,727 INFO [routing.RoutingProfileManager] -                               
+2021-10-01 11:44:40,743 INFO [routing.RoutingProfileManager] -                
+2021-10-01 11:44:40,806 INFO [routing.RoutingProfile] - [1] Profiles: 'driving-hgv', location: 'graphs/hgv'.
+2021-10-01 11:44:40,808 INFO [routing.RoutingProfile] - [2] Profiles: 'driving-car', location: 'graphs/car'.
+2021-10-01 11:44:44,092 ERROR [routing.RoutingProfileManager] - java.util.concurrent.ExecutionException: java.lang.RuntimeException: Couldn't process file data/osm_file.osm.bz2, error: Index 35787726 out of bounds for length 0
+2021-10-01 11:44:44,093 INFO [routing.RoutingProfile] - [3] Profiles: 'cycling-regular', location: 'graphs/bike-regular'.
+2021-10-01 11:44:44,095 ERROR [routing.RoutingProfileManager] - Failed to initialize RoutingProfileManager instance.
+java.util.concurrent.ExecutionException: java.lang.RuntimeException: Couldn't process file data/osm_file.osm.bz2, error: Index 35787726 out of bounds for length 0
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122) ~[?:?]
+	at java.util.concurrent.FutureTask.get(FutureTask.java:191) ~[?:?]
+	at org.heigit.ors.routing.RoutingProfileManager.initialize(RoutingProfileManager.java:176) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfileManager.getInstance(RoutingProfileManager.java:70) ~[classes/:6.6.1]
+	at org.heigit.ors.servlet.listeners.ORSInitContextListener.lambda$contextInitialized$0(ORSInitContextListener.java:41) ~[classes/:6.6.1]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+Caused by: java.lang.RuntimeException: Couldn't process file data/osm_file.osm.bz2, error: Index 35787726 out of bounds for length 0
+	at com.graphhopper.reader.osm.OSMReader.writeOsm2Graph(OSMReader.java:326) ~[graphhopper-reader-osm-v0.13.15.jar:?]
+	at com.graphhopper.reader.osm.OSMReader.readGraph(OSMReader.java:178) ~[graphhopper-reader-osm-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.importData(GraphHopper.java:735) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.readData(GraphHopper.java:714) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.process(GraphHopper.java:701) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.importOrLoad(GraphHopper.java:680) ~[graphhopper-core-v0.13.15.jar:?]
+	at org.heigit.ors.routing.graphhopper.extensions.ORSGraphHopper.importOrLoad(ORSGraphHopper.java:155) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfile.initGraphHopper(RoutingProfile.java:189) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfile.<init>(RoutingProfile.java:133) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfileLoader.call(RoutingProfileLoader.java:35) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfileLoader.call(RoutingProfileLoader.java:21) ~[classes/:6.6.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[?:?]
+	... 1 more
+Caused by: java.lang.IndexOutOfBoundsException: Index 35787726 out of bounds for length 0
+	at jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64) ~[?:?]
+	at jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70) ~[?:?]
+	at jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248) ~[?:?]
+	at java.util.Objects.checkIndex(Objects.java:372) ~[?:?]
+	at java.util.ArrayList.get(ArrayList.java:459) ~[?:?]
+	at com.graphhopper.storage.MMapDataAccess.getShort(MMapDataAccess.java:367) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.reader.dem.HeightTile.getHeight(HeightTile.java:100) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.reader.dem.AbstractTiffElevationProvider.getEle(AbstractTiffElevationProvider.java:142) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.reader.dem.MultiSourceElevationProvider.getEle(MultiSourceElevationProvider.java:52) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.reader.osm.OSMReader.getElevation(OSMReader.java:715) ~[graphhopper-reader-osm-v0.13.15.jar:?]
+	at org.heigit.ors.routing.graphhopper.extensions.ORSOSMReader.getElevation(ORSOSMReader.java:433) ~[classes/:6.6.1]
+	at com.graphhopper.reader.osm.OSMReader.addNode(OSMReader.java:676) ~[graphhopper-reader-osm-v0.13.15.jar:?]
+	at com.graphhopper.reader.osm.OSMReader.processNode(OSMReader.java:641) ~[graphhopper-reader-osm-v0.13.15.jar:?]
+	at com.graphhopper.reader.osm.OSMReader.writeOsm2Graph(OSMReader.java:293) ~[graphhopper-reader-osm-v0.13.15.jar:?]
+	at com.graphhopper.reader.osm.OSMReader.readGraph(OSMReader.java:178) ~[graphhopper-reader-osm-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.importData(GraphHopper.java:735) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.readData(GraphHopper.java:714) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.process(GraphHopper.java:701) ~[graphhopper-core-v0.13.15.jar:?]
+	at com.graphhopper.GraphHopper.importOrLoad(GraphHopper.java:680) ~[graphhopper-core-v0.13.15.jar:?]
+	at org.heigit.ors.routing.graphhopper.extensions.ORSGraphHopper.importOrLoad(ORSGraphHopper.java:155) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfile.initGraphHopper(RoutingProfile.java:189) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfile.<init>(RoutingProfile.java:133) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfileLoader.call(RoutingProfileLoader.java:35) ~[classes/:6.6.1]
+	at org.heigit.ors.routing.RoutingProfileLoader.call(RoutingProfileLoader.java:21) ~[classes/:6.6.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[?:?]
+	... 1 more
+2021-10-01 11:44:44,112 INFO [routing.RoutingProfileManager] - ====> Recycling garbage...
+2021-10-01 11:44:44,115 INFO [routing.RoutingProfileManager] - Before:  Total - 1.00 GB, Free - 745.17 MB, Max: 2 GB, Used - 280.83 MB
+2021-10-01 11:44:44,202 INFO [routing.RoutingProfileManager] - After:  Total - 1024 MB, Free - 955.98 MB, Max: 2 GB, Used - 68.02 MB
+2021-10-01 11:44:44,204 INFO [routing.RoutingProfileManager] - ========================================================================
+2021-10-01 11:44:44,206 INFO [routing.RoutingProfileManager] - ====> Memory usage by profiles:
+2021-10-01 11:44:44,210 INFO [routing.RoutingProfileManager] - Total: 0 B (0.0%)
+2021-10-01 11:44:44,217 INFO [routing.RoutingProfileManager] - ========================================================================
+2021-10-01 11:44:45,853 INFO [routing.RoutingProfile] - [4] Profiles: 'cycling-mountain', location: 'graphs/bike-mountain'.
+2021-10-01 11:44:47,401 INFO [routing.RoutingProfile] - [5] Profiles: 'cycling-road', location: 'graphs/bike-road'.
+2021-10-01 11:44:47,431 INFO [bike.CommonBikeFlagEncoder] - NextGen RoadBike FlagEncoder is active...
+2021-10-01 11:44:48,994 INFO [routing.RoutingProfile] - [6] Profiles: 'cycling-electric', location: 'graphs/bike-electric'.
+2021-10-01 11:44:50,559 INFO [routing.RoutingProfile] - [7] Profiles: 'foot-walking', location: 'graphs/walking'.
+2021-10-01 11:44:52,066 INFO [routing.RoutingProfile] - [8] Profiles: 'foot-hiking', location: 'graphs/hiking'.
+2021-10-01 11:44:53,744 INFO [routing.RoutingProfile] - [9] Profiles: 'wheelchair', location: 'graphs/wheelchair'.
+2021-10-01 11:44:59,945 INFO [routing.RoutingProfile] - [9] FlagEncoders: 1, bits used [UNKNOWN]/64.
+2021-10-01 11:44:59,947 INFO [routing.RoutingProfile] - [9] Capacity: [UNKNOWN]. (edges - 7908, nodes - 5755)
+2021-10-01 11:44:59,953 INFO [routing.RoutingProfile] - [9] Total time: 6.208s.
+2021-10-01 11:44:59,958 INFO [routing.RoutingProfile] - [9] Finished at: 2021-10-01 11:44:59.
+2021-10-01 11:44:59,962 INFO [routing.RoutingProfile] -                               
+2021-10-01 11:45:03,597 INFO [core.PrepareCore] - 0, updates:0, nodes: 4 193, shortcuts:0, dijkstras:11 971, t(dijk):0.15, t(period):0.0, t(lazy):0.0, t(neighbor):0.0, meanDegree:1, algo:0MB, totalMB:1024, usedMB:172
+2021-10-01 11:45:04,139 INFO [core.PrepareCore] - 839, updates:2, nodes: 3 354, shortcuts:31, dijkstras:32 761, t(dijk):0.44, t(period):0.46, t(lazy):0.0, t(neighbor):0.05, meanDegree:1, algo:0MB, totalMB:1024, usedMB:172
+2021-10-01 11:45:04,498 INFO [core.PrepareCore] - 1 678, updates:4, nodes: 2 515, shortcuts:31, dijkstras:47 057, t(dijk):0.63, t(period):0.77, t(lazy):0.0, t(neighbor):0.09, meanDegree:1, algo:0MB, totalMB:1024, usedMB:173
+2021-10-01 11:45:04,860 INFO [core.PrepareCore] - 2 517, updates:6, nodes: 1 676, shortcuts:824, dijkstras:60 931, t(dijk):0.81, t(period):0.99, t(lazy):0.0, t(neighbor):0.18, meanDegree:1, algo:0MB, totalMB:1024, usedMB:173
+2021-10-01 11:45:05,216 INFO [core.PrepareCore] - 3 356, updates:8, nodes: 837, shortcuts:1 862, dijkstras:74 200, t(dijk):1.0, t(period):1.12, t(lazy):0.0, t(neighbor):0.34, meanDegree:1, algo:0MB, totalMB:1024, usedMB:174
+2021-10-01 11:45:05,508 INFO [core.PrepareCore] - took:2, new shortcuts: 2 817, prepare|fastest|car-ors, dijkstras:86193, t(dijk):1.13, t(period):1.15, t(lazy):0.03, t(neighbor):0.5, meanDegree:3, initSize:4193, periodic:10, lazy:10, neighbor:90, totalMB:1024, usedMB:174
+2021-10-01 11:45:05,774 INFO [core.PrepareCore] - 0, updates:0, nodes: 4 193, shortcuts:0, dijkstras:11 971, t(dijk):0.12, t(period):0.0, t(lazy):0.0, t(neighbor):0.0, meanDegree:1, algo:0MB, totalMB:1024, usedMB:177
+2021-10-01 11:45:06,285 INFO [core.PrepareCore] - 839, updates:2, nodes: 3 354, shortcuts:19, dijkstras:32 699, t(dijk):0.41, t(period):0.44, t(lazy):0.0, t(neighbor):0.05, meanDegree:1, algo:0MB, totalMB:1024, usedMB:177
+2021-10-01 11:45:06,619 INFO [core.PrepareCore] - 1 678, updates:4, nodes: 2 515, shortcuts:30, dijkstras:47 176, t(dijk):0.59, t(period):0.74, t(lazy):0.0, t(neighbor):0.08, meanDegree:1, algo:0MB, totalMB:1024, usedMB:178
+2021-10-01 11:45:06,995 INFO [core.PrepareCore] - 2 517, updates:6, nodes: 1 676, shortcuts:968, dijkstras:62 528, t(dijk):0.79, t(period):0.96, t(lazy):0.0, t(neighbor):0.18, meanDegree:1, algo:0MB, totalMB:1024, usedMB:178
+2021-10-01 11:45:07,348 INFO [core.PrepareCore] - 3 356, updates:8, nodes: 837, shortcuts:1 895, dijkstras:75 970, t(dijk):0.97, t(period):1.1, t(lazy):0.0, t(neighbor):0.33, meanDegree:1, algo:0MB, totalMB:1024, usedMB:179
+2021-10-01 11:45:07,736 INFO [core.PrepareCore] - took:2, new shortcuts: 2 973, prepare|shortest|car-ors, dijkstras:90542, t(dijk):1.17, t(period):1.13, t(lazy):0.05, t(neighbor):0.57, meanDegree:4, initSize:4193, periodic:10, lazy:10, neighbor:90, totalMB:1024, usedMB:179
+2021-10-01 11:45:08,464 INFO [routing.RoutingProfile] - [2] FlagEncoders: 1, bits used [UNKNOWN]/64.
+2021-10-01 11:45:08,466 INFO [routing.RoutingProfile] - [2] Capacity: [UNKNOWN]. (edges - 5258, nodes - 4193)
+2021-10-01 11:45:08,468 INFO [routing.RoutingProfile] - [2] Total time: 27.659s.
+2021-10-01 11:45:08,473 INFO [routing.RoutingProfile] - [2] Finished at: 2021-10-01 11:45:08.
+2021-10-01 11:45:08,475 INFO [routing.RoutingProfile] -                               
+2021-10-01 11:48:47,183 INFO [ors.Application] - Starting Application v6.6.1 on 70aab0df11b5 with PID 118 (/usr/local/tomcat/webapps/ors/WEB-INF/classes started by root in /ors-core)
+2021-10-01 11:48:47,192 DEBUG [ors.Application] - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+2021-10-01 11:48:47,198 INFO [ors.Application] - No active profile set, falling back to default profiles: default
+2021-10-01 11:48:51,611 INFO [ors.Application] - Started Application in 6.271 seconds (JVM running for 14.267)
+2021-10-01 11:48:51,808 INFO [routing.RoutingProfileManager] -  Total - 1.00 GB, Free - 793.17 MB, Max: 2 GB, Used - 232.83 MB
+2021-10-01 11:48:51,814 INFO [routing.RoutingProfileManager] -       
